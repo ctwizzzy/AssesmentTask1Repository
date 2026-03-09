@@ -33,3 +33,4 @@ def display_apod(apod_data):
         print(f"Image URL: {apod_data['image_url']}")
     else:
         print("No data to display.")
+       
