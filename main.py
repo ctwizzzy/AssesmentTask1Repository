@@ -11,14 +11,22 @@ headers = {
         'x-apisports-key': KEY
     }
 
+user_wants_team = input("What team you would like to find").capitalize()
+
+
+
 params = {
-    'id': '33'
+   "name": user_wants_team
 }
 
 
 response = requests.get(BASE_URL, headers=headers, params=params )
 
-if response.status_code == 200:
+data = response.json()
+
+if data.get('results') == 0:
+    print("Failed to find an accurate result check your spelling and fix it for a result")
+elif response.status_code == 200:
    print(response.json())
 else:
     print(f"Error {response.status_code}")
