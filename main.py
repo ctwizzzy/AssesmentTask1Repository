@@ -35,7 +35,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 
-api_key = "92bac66084657b12ee8a93b11129c2a5"
+# api_key = "92bac66084657b12ee8a93b11129c2a5"
+api_key = "e876a78b187169afe904665924052543"
 
 file_name = "history.csv"
 
