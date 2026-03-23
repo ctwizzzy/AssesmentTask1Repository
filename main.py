@@ -3,13 +3,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 
-# api_key = "92bac66084657b12ee8a93b11129c2a5"
+# api_key for the OpenWeatherMap API
 api_key = "e876a78b187169afe904665924052543"
 
 file_name = "history.csv"
 
 
-# Weather function
+# Retreives the weather of the inputted city by the user
 def get_weather():
 
     city = input("Enter city: ")
@@ -36,7 +36,7 @@ def get_weather():
         print("Error:", data.get("message"))
 
 
-# Save history using pandas
+# Saving user's input history using pandas
 def save_history(city,temp,humidity,weather):
 
     df = pd.DataFrame([[city,temp,humidity,weather]],
@@ -48,7 +48,7 @@ def save_history(city,temp,humidity,weather):
         df.to_csv(file_name,index=False)
 
 
-# View history
+# Code that allows the user to view the history of their searches
 def view_history():
 
     if os.path.exists(file_name):
@@ -61,7 +61,7 @@ def view_history():
         print("No history found.")
 
 
-# Temperature graph
+# The code that generates the temperature graph
 def show_graph():
 
     if os.path.exists(file_name):
@@ -84,7 +84,7 @@ def show_graph():
         print("No data available")
 
 
-# Menu system
+# This is the menu system which shows the choices for the user
 while True:
 
     print("\n====== Weather App ======")
