@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import os
 
 # api_key for the OpenWeatherMap API
-api_key = "e876a78b187169afe904665924052543"
+weather_api_key = "e876a78b187169afe904665924052543"
 
 file_name = "history.csv"
 
@@ -14,7 +14,7 @@ def get_weather():
 
     city = input("Enter city: ")
 
-    url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric"
+    url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={weather_api_key}&units=metric"
 
     response = requests.get(url)
     data = response.json()
