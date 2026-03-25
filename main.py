@@ -11,7 +11,7 @@ history_file_name = "weather_history.csv"
 
 
 # Retreives real time weather data based on the city name provided by the user
-def retreive_weather_by_city_name():
+def retreive_weather():
 
     city = input("Enter city: ")
 
@@ -50,7 +50,7 @@ def save_weather_search(city,temp,humidity,weather):
 
 
 # Displays previously searched cities by the user and displays the weather data for those cities using pandas
-def display_user_weather_search_history():
+def weather_search_history():
 
     if os.path.exists(history_file_name):
 
@@ -97,10 +97,10 @@ while True:
     choice = input("Choose option: ")
 
     if choice == "1":
-        retreive_weather_by_city_name()
+        retreive_weather()
 
     elif choice == "2":
-        display_user_weather_search_history()
+       weather_search_history()
 
     elif choice == "3":
         create_temperature_graph()

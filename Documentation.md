@@ -33,17 +33,62 @@ The system is able to provide the user real-time weather information about the c
 - The user interface must be simple and easy to navigate through
 - The system must be able to respond to invalid inputs and fix errors
 - The code must be well commented with explanations 
+- The API key is stored in a secure manner
 
 ## Design: 
 
 ### Data Dictionary:
 
-- city: Name of the city entered by the user
-- temp: Temperature of the city measured in degrees celcius
-- humidity: Humidity percentage of the city
-- weather: description of the weather condition of the chosen city
+| Variable | Variable Type | Description                           |
+|----------|---------------|---------------------------------------|
+| city     | string        | The name of the city                  |
+| temp     | float         | Value of temperature                  |
+| humidity | integer       | percentage of humidity                |
+| history  | DataFrame     | Storees the past searches of the user |
 
 ### Structure Chart: 
 
-- 
+Main Program
+1. retrieve_weather() 
+2. save_weather_search()
+3. weather_search_history()
+4. create_temperature_graph()
 
+### Pseudocode
+Start
+Display UI
+Receive User Input
+
+If Choice = 1
+GET city 
+CALL API
+DISPLAY weather data
+SAVE data
+
+elif Choice = 2
+GET weather_history.csv data
+DISPLAY User history
+
+elif Choice = 3 
+READ data from csv file
+CREATE city temperature graph
+
+elif choice = 4 
+EXIT program
+
+else:
+PRINT ("Invalid choice")
+
+## Development: 
+
+This application was developed using the Python programming language. The OpenWeatherMAp API hhad the purpose of retrieving real time data of the temperature of cities around the world. 
+
+Four libraries were required to be used in the development of this API. These include:
+- requests
+- pandas
+- matplotlib
+- os
+
+The API returns data in a json format so specific information about the weather can be extracted. 
+
+Attached in another file is a photo of my UI. 
