@@ -3,14 +3,15 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 
-# api_key for the OpenWeatherMap API
+# api_key to access the openweathermap api
 api_key = "e876a78b187169afe904665924052543"
 
-file_name = "history.csv"
+# The file name for the csv file which will be used to store the input history of the user
+history_file_name = "weather_history.csv"
 
 
-# Retreives the weather of the inputted city by the user
-def get_weather():
+# Retreives real time weather data based on the city name provided by the user
+def retreive_weather_by_city_name():
 
     city = input("Enter city: ")
 
@@ -30,30 +31,30 @@ def get_weather():
         print("Humidity:", humidity)
         print("Weather:", weather)
 
-        save_history(city,temp,humidity,weather)
+        save_weather_search(city,temp,humidity,weather)
 
     else:
         print("Error:", data.get("message"))
 
 
-# Saving user's input history using pandas
-def save_history(city,temp,humidity,weather):
+# Uses pandas to save the search history of the users inputs to a csv file. 
+def save_weather_search(city,temp,humidity,weather):
 
     df = pd.DataFrame([[city,temp,humidity,weather]],
                       columns=["City","Temperature","Humidity","Weather"])
 
-    if os.path.exists(file_name):
-        df.to_csv(file_name,mode="a",header=False,index=False)
+    if os.path.exists(history_file_name):
+        df.to_csv(history_file_name,mode="a",header=False,index=False)
     else:
-        df.to_csv(file_name,index=False)
+        df.to_csv(history_file_name,index=False)
 
 
-# Code that allows the user to view the history of their searches
-def view_history():
+# Displays previously searched cities by the user and displays the weather data for those cities using pandas
+def display_user_weather_search_history():
 
-    if os.path.exists(file_name):
+    if os.path.exists(history_file_name):
 
-        df = pd.read_csv(file_name)
+        df = pd.read_csv(history_file_name)
         print("\nSearch History\n")
         print(df)
 
@@ -61,12 +62,12 @@ def view_history():
         print("No history found.")
 
 
-# The code that generates the temperature graph
-def show_graph():
+# Generates a city temperature graph using matoplotlib 
+def create_temperature_graph():
 
-    if os.path.exists(file_name):
+    if os.path.exists(history_file_name):
 
-        df = pd.read_csv(file_name)
+        df = pd.read_csv(history_file_name)
 
         plt.figure()
 
@@ -81,32 +82,32 @@ def show_graph():
         plt.show()
 
     else:
-        print("No data available")
+        print("No weather data available")
 
 
-# This is the menu system which shows the choices for the user
+# The main menu system which the user interacts with
 while True:
 
     print("\n====== Weather App ======")
-    print("1. Search Weather")
-    print("2. View History")
-    print("3. Show Temperature Graph")
-    print("4. Exit")
+    print("1. Search Weather Of City")
+    print("2. View Search History")
+    print("3. Generate City Temperature Graph")
+    print("4. Exit Program")
 
     choice = input("Choose option: ")
 
     if choice == "1":
-        get_weather()
+        retreive_weather_by_city_name()
 
     elif choice == "2":
-        view_history()
+        display_user_weather_search_history()
 
     elif choice == "3":
-        show_graph()
+        create_temperature_graph()
 
     elif choice == "4":
         print("Exiting program")
         break
 
     else:
-        print("Invalid choice")
+        print("Invalid city choice, please try again and check for spelling errors")
