@@ -62,7 +62,7 @@ def weather_search_history():
         print("No history found.")
 
 
-# Generates a city temperature graph using matoplotlib 
+# Generates a city temperature graph using matplotlib 
 def create_temperature_graph():
 
     if os.path.exists(history_file_name):
