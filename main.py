@@ -3,21 +3,21 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 
-# api_key to access the openweathermap api
-api_key = "e876a78b187169afe904665924052543"
+# weather_api_key to access the openweathermap api
+weather_api_key = "e876a78b187169afe904665924052543"
 
 # The file name for the csv file which will be used to store the input history of the user
 history_file_name = "weather_history.csv"
 
 
-# Retreives real time weather data based on the city name provided by the user
+# This function retrieves real time weather data based on the city name provided by the user
 def retreive_weather():
 
     city = input("Enter city: ")
 
-    url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric"
+    weather_url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={weather_api_key}&units=metric"
 
-    response = requests.get(url)
+    response = requests.get(weather_url)
     data = response.json()
 
     if data.get("cod") == 200:
