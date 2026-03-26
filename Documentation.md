@@ -44,7 +44,7 @@ The system is able to provide the user real-time weather information about the c
 | city     | string        | The name of the city                  |
 | temp     | float         | Value of temperature                  |
 | humidity | integer       | percentage of humidity                |
-| history  | DataFrame     | Storees the past searches of the user |
+| history  | DataFrame     | Stores the past searches of the user |
 
 ### Structure Chart: 
 
