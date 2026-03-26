@@ -86,7 +86,8 @@ def create_temperature_graph():
 
 
 # The main menu system which the user interacts with
-while True:
+while_loop = True
+while while_loop:
 
     print("\n====== Weather App ======")
     print("1. Search Weather Of City")
