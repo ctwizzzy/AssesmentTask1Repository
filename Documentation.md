@@ -54,30 +54,8 @@ Main Program
 3. weather_search_history()
 4. create_temperature_graph()
 
-### Pseudocode
-Start
-Display UI
-Receive User Input
-
-If Choice = 1
-GET city 
-CALL API
-DISPLAY weather data
-SAVE data
-
-elif Choice = 2
-GET weather_history.csv data
-DISPLAY User history
-
-elif Choice = 3 
-READ data from csv file
-CREATE city temperature graph
-
-elif choice = 4 
-EXIT program
-
-else:
-PRINT ("Invalid choice")
+### Pseudocode: 
+My pseudocode is attached in a seperate .txt file
 
 ## Development: 
 
