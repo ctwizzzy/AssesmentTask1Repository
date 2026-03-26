@@ -89,6 +89,74 @@ Four libraries were required to be used in the development of this API. These in
 - matplotlib
 - os
 
-The API returns data in a json format so specific information about the weather can be extracted. 
-
 Attached in another file is a photo of my UI. 
+
+## Integration: 
+
+The OpenWeatherMap API integrated by using different Python libraries. These libraries include
+- requests (used to send requests to the API)
+- pandas (used to store the search history of the user)
+- matplotlib (used to create the city temeprature graph)
+
+The API returns weather data in a json format to allow specific weather data such as temperature, humidity and weather description to be extracted. 
+
+## Testng: 
+
+Test Case 1:
+Input: City name which is valid
+Output: Informsation about weather is dispalyed
+
+Test Case 2: 
+Input: View search hsitory
+Output: Search history of user is displayed 
+
+Test Case 3: 
+Input: Generate City Temperature Graph 
+Output: A graph with past cities that were searched up and their weather is displayed. 
+
+Test Case 4: 
+Input: Exit Program
+Output: User exits the program
+
+Test Case 5: 
+Input: Invalid Choice
+Output: Error message is displayed
+
+Feedback from two students: 
+
+Martin Han: I have tested Aarav's system and it performs very efficiently. It responds within seconds to user inputs and there are  no bugs within the system. 
+
+Oscar Lou: Aarav's API system is to a high standard and responds to inputs very well. The UI is neat and easy to understand and there are a variety of options provided in the menu. 
+
+## Maintenance: 
+
+It is important to continue to maintain this application so that it continues to function well and stays useful over time. Due to the application relying on an external API and user input, many areas require constant maintenance. 
+
+### Ongoing maintenance: 
+
+- The API integration must be monitored regularly to ensure its compatibility as changes to the OpenWeatherMap API may occur which could potentially break the program. 
+- The libraries used such as requests, pandas and matplotlib must be updated regularly to ensure security and performance. 
+- The weather_history.csv file must be monitored regularly to prevent data corruption or excessive file size. 
+
+### Bug fixing: 
+
+- Future bugs may arise to sue to an invalid input by the user 
+- Issues related to network such as timeouts or API downtime will require maintenance improvements and more frequent checks on the     program.
+
+### Future Improvements: 
+
+- Implementing a Graphical User Interface to improve usability and accesibility for users. 
+- Improve the temeprature graph by allowing users to filter and compare cities of their choice. 
+- Add more weather descriptions such as wind speed and information about the forecast. 
+
+### Long-Term Enhancements: 
+
+- Add the option for users to create accounts to allow a personalised search history.
+- Expand the application to allow the support of multiple APIs for a variety of data sources. 
+- Make the application a web-based system for better accessibility. 
+
+### Strategies for Maintenance: 
+
+- Regular updates to libraries.
+- Testing after updates.
+- Allowing users to give feedback to improove on the system further. 
